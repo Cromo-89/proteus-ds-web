@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Topbar } from "@/components/docs/topbar"
 import { Icon } from "@/components/ui/icon"
+import { HeroGrid } from "@/components/home/hero-grid"
 
 const stats = [
   { value: "54", label: "Componentes" },
@@ -107,16 +108,31 @@ export default function HomePage() {
       <Topbar />
 
       {/* ── Hero ────────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-border">
+      <section className="relative overflow-hidden border-b border-border min-h-[540px] lg:min-h-[620px]">
+        {/* Dot grid canvas */}
+        <HeroGrid />
+
+        {/* Top glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10"
           style={{
             background:
-              "radial-gradient(ellipse 80% 60% at 50% -10%, oklch(0.450 0.180 284 / 0.15), transparent)",
+              "radial-gradient(ellipse 70% 50% at 50% -5%, oklch(0.450 0.180 284 / 0.18), transparent)",
           }}
         />
-        <div className="mx-auto max-w-5xl px-6 py-20 lg:py-28 text-center">
+
+        {/* Bottom fade to background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 left-0 right-0 h-32"
+          style={{
+            background:
+              "linear-gradient(to bottom, transparent, var(--background))",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-5xl px-6 py-20 lg:py-28 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary mb-8">
             <span className="size-1.5 rounded-full bg-primary animate-pulse" />
             Sistema de diseño · v0.1.0
@@ -159,6 +175,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* ── Stats ───────────────────────────────────────── */}
       <section className="border-b border-border bg-background-secondary">
