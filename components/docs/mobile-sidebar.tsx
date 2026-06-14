@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Menu } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { Icon } from "@/components/ui/icon"
 import { SidebarNav } from "@/components/docs/sidebar-nav"
 import { ProteusLogo } from "@/components/docs/proteus-logo"
 
@@ -12,15 +11,13 @@ export function MobileSidebar() {
 
   return (
     <>
-      <Button
-        variant="ghost"
-        size="icon"
-        className="size-9 md:hidden"
+      <button
         onClick={() => setOpen(true)}
-        aria-label="Open navigation"
+        aria-label="Abrir navegación"
+        className="inline-flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
       >
-        <Menu className="size-4" />
-      </Button>
+        <Icon name="menu" size={20} />
+      </button>
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side="left" className="w-64 p-0">

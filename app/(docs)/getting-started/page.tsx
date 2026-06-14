@@ -24,22 +24,22 @@ export default function GettingStartedPage() {
           {
             title: "Installation",
             href: "/getting-started/installation",
-            description: "Instalá las dependencias y configurá tu entorno.",
+            description: "Instala las dependencias y configura tu entorno.",
           },
           {
             title: "Usage",
             href: "/getting-started/usage",
-            description: "Importá y usá componentes en tu proyecto.",
+            description: "Importa y usa componentes en tu proyecto.",
           },
           {
             title: "Theming",
             href: "/getting-started/theming",
-            description: "Personalizá colores, tipografía y radius.",
+            description: "Personaliza colores, tipografía y radius.",
           },
           {
             title: "Components",
             href: "/components/button",
-            description: "Explorá los 54 componentes del sistema.",
+            description: "Explora los 54 componentes del sistema.",
           },
         ].map((card) => (
           <a

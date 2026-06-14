@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Icon } from "@/components/ui/icon"
 import { ThemeToggle } from "@/components/docs/theme-toggle"
 import { MobileSidebar } from "@/components/docs/mobile-sidebar"
 import { ProteusLogo } from "@/components/docs/proteus-logo"
@@ -17,15 +17,11 @@ export function Topbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-14 items-center gap-3 px-4">
-        {/* Mobile trigger */}
         <MobileSidebar />
 
-        {/* Logo — hidden on mobile (shown in Sheet), visible on md+ */}
         <div className="hidden md:flex">
           <ProteusLogo />
         </div>
-
-        {/* Logo on mobile */}
         <div className="flex md:hidden">
           <ProteusLogo />
         </div>
@@ -33,21 +29,9 @@ export function Topbar() {
         {/* Search placeholder */}
         <button
           className="flex flex-1 max-w-sm items-center gap-2 rounded-md border border-border bg-muted/50 px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted mx-auto md:mx-0 md:ml-6"
-          aria-label="Search documentation"
+          aria-label="Buscar en la documentación"
         >
-          <svg
-            className="size-3.5 shrink-0"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.3-4.3" />
-          </svg>
+          <Icon name="search" size={20} className="text-muted-foreground shrink-0" />
           <span className="hidden sm:inline">Buscar componentes...</span>
           <kbd className="ml-auto hidden sm:flex items-center gap-0.5 rounded border border-border bg-background px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
             <span>⌘</span>K
