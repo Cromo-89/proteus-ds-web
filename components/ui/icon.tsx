@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 
 interface IconProps {
   name: string
-  size?: 20 | 24 | 40 | 48
+  size?: 14 | 16 | 20 | 24 | 40 | 48
   filled?: boolean
   className?: string
 }
