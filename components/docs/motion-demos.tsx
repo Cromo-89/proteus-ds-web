@@ -86,7 +86,7 @@ export function EasingDemo() {
           <div key={name} className="overflow-hidden rounded-xl border border-border">
             <div className="grid sm:grid-cols-[auto_1fr] divide-y sm:divide-y-0 sm:divide-x divide-border">
               {/* Demo con animación continua — cada card usa su propia curva */}
-              <div className="flex items-center bg-background-secondary px-6 sm:w-48 h-20">
+              <div className="flex items-center bg-background-secondary px-6 py-6 sm:w-48">
                 <div
                   className="size-5 rounded-md bg-primary"
                   style={{
