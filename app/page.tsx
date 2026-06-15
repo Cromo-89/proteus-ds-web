@@ -21,12 +21,12 @@ const features = [
   { icon: "accessibility",  label: "Accesible por defecto" },
 ]
 
-const accentVars: Record<string, string> = {
-  "text-primary":     "var(--primary)",
-  "text-info":        "var(--info)",
-  "text-success":     "var(--success)",
-  "text-warning":     "var(--warning)",
-  "text-destructive": "var(--destructive)",
+const accentStyles: Record<string, { "--cat-border": string; "--cat-glow": string }> = {
+  "text-primary":     { "--cat-border": "oklch(0.500 0.185 284 / 0.55)", "--cat-glow": "oklch(0.500 0.185 284 / 0.18)" },
+  "text-info":        { "--cat-border": "oklch(0.500 0.160 240 / 0.55)", "--cat-glow": "oklch(0.500 0.160 240 / 0.18)" },
+  "text-success":     { "--cat-border": "oklch(0.520 0.160 145 / 0.55)", "--cat-glow": "oklch(0.520 0.160 145 / 0.18)" },
+  "text-warning":     { "--cat-border": "oklch(0.620 0.160 75  / 0.55)", "--cat-glow": "oklch(0.620 0.160 75  / 0.18)" },
+  "text-destructive": { "--cat-border": "oklch(0.520 0.200 25  / 0.55)", "--cat-glow": "oklch(0.520 0.200 25  / 0.18)" },
 }
 
 const categories = [
@@ -169,7 +169,7 @@ export default function HomePage() {
             <Reveal key={cat.title} delay={i * 45} className="h-full">
               <Link
                 href={cat.href}
-                style={{ "--cat-accent": accentVars[cat.accent] } as React.CSSProperties}
+                style={accentStyles[cat.accent] as React.CSSProperties}
                 className="cat-card group relative overflow-hidden rounded-xl border border-border/40 bg-card/80 p-5 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:bg-card"
               >
                 {/* corner glow */}

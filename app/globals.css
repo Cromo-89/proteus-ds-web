@@ -230,11 +230,8 @@
 }
 
 /* ── Category card glow — border + glow adaptan al color del ícono ─── */
-.cat-card {
-  --cat-accent: var(--primary);
-}
 .cat-card:hover {
-  border-color: oklch(from var(--cat-accent) l c h / 0.50);
+  border-color: var(--cat-border);
 }
 .cat-card::before {
   content: "";
@@ -244,7 +241,7 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.35s ease;
-  box-shadow: 0 0 32px oklch(from var(--cat-accent) l c h / 0.12);
+  box-shadow: 0 0 36px var(--cat-glow);
 }
 .cat-card:hover::before {
   opacity: 1;
