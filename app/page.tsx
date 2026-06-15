@@ -1,13 +1,24 @@
 import Link from "next/link"
 import { Topbar } from "@/components/docs/topbar"
 import { Icon } from "@/components/ui/icon"
-import { HeroGrid } from "@/components/home/hero-grid"
+import { HeroScroll } from "@/components/home/hero-scroll"
+import { Marquee } from "@/components/home/marquee"
+import { Reveal } from "@/components/home/reveal"
 
 const stats = [
-  { value: "54", label: "Componentes" },
-  { value: "7", label: "Foundations" },
-  { value: "OKLCH", label: "Color tokens" },
-  { value: "100%", label: "TypeScript" },
+  { value: "54",    label: "Componentes" },
+  { value: "7",     label: "Foundations" },
+  { value: "OKLCH", label: "Color system" },
+  { value: "100%",  label: "TypeScript" },
+]
+
+const features = [
+  { icon: "deployed_code",  label: "shadcn/ui compatible" },
+  { icon: "dark_mode",      label: "Dark mode first" },
+  { icon: "palette",        label: "OKLCH tokens" },
+  { icon: "bolt",           label: "Base UI primitives" },
+  { icon: "code",           label: "TypeScript nativo" },
+  { icon: "accessibility",  label: "Accesible por defecto" },
 ]
 
 const categories = [
@@ -18,8 +29,6 @@ const categories = [
     href: "/components/button",
     icon: "widgets",
     accent: "text-primary",
-    bg: "from-primary/10 via-primary/5 to-transparent",
-    border: "hover:border-primary/40",
   },
   {
     title: "Forms",
@@ -28,8 +37,6 @@ const categories = [
     href: "/components/input",
     icon: "layers",
     accent: "text-info",
-    bg: "from-info/10 via-info/5 to-transparent",
-    border: "hover:border-info/40",
   },
   {
     title: "Navigation",
@@ -38,8 +45,6 @@ const categories = [
     href: "/components/tabs",
     icon: "near_me",
     accent: "text-success",
-    bg: "from-success/10 via-success/5 to-transparent",
-    border: "hover:border-success/40",
   },
   {
     title: "Overlays",
@@ -48,8 +53,6 @@ const categories = [
     href: "/components/dialog",
     icon: "open_in_full",
     accent: "text-warning",
-    bg: "from-warning/10 via-warning/5 to-transparent",
-    border: "hover:border-warning/40",
   },
   {
     title: "Feedback",
@@ -58,8 +61,6 @@ const categories = [
     href: "/components/alert",
     icon: "notifications",
     accent: "text-destructive",
-    bg: "from-destructive/10 via-destructive/5 to-transparent",
-    border: "hover:border-destructive/40",
   },
   {
     title: "Display",
@@ -68,8 +69,6 @@ const categories = [
     href: "/components/card",
     icon: "grid_view",
     accent: "text-primary",
-    bg: "from-primary/8 via-primary/3 to-transparent",
-    border: "hover:border-primary/30",
   },
   {
     title: "Foundations",
@@ -78,8 +77,6 @@ const categories = [
     href: "/foundations/colors",
     icon: "auto_stories",
     accent: "text-info",
-    bg: "from-info/8 via-info/3 to-transparent",
-    border: "hover:border-info/30",
   },
   {
     title: "Guidelines",
@@ -88,18 +85,16 @@ const categories = [
     href: "/guidelines/accessibility",
     icon: "accessibility",
     accent: "text-success",
-    bg: "from-success/8 via-success/3 to-transparent",
-    border: "hover:border-success/30",
   },
 ]
 
 const colorSwatches = [
-  { label: "Primary", cls: "bg-primary" },
-  { label: "Success", cls: "bg-success" },
-  { label: "Warning", cls: "bg-warning" },
+  { label: "Primary",     cls: "bg-primary" },
+  { label: "Success",     cls: "bg-success" },
+  { label: "Warning",     cls: "bg-warning" },
   { label: "Destructive", cls: "bg-destructive" },
-  { label: "Info", cls: "bg-info" },
-  { label: "Muted", cls: "bg-muted-foreground" },
+  { label: "Info",        cls: "bg-info" },
+  { label: "Muted",       cls: "bg-muted-foreground" },
 ]
 
 export default function HomePage() {
@@ -107,253 +102,242 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       <Topbar />
 
-      {/* ── Hero ────────────────────────────────────────── */}
-      <section className="relative overflow-hidden border-b border-border min-h-[540px] lg:min-h-[620px]">
-        {/* Dot grid canvas */}
-        <HeroGrid />
+      {/* ── Hero scroll-driven ───────────────────────────── */}
+      <HeroScroll />
 
-        {/* Top glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 50% at 50% -5%, oklch(0.450 0.180 284 / 0.18), transparent)",
-          }}
-        />
-
-        {/* Bottom fade to background */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 left-0 right-0 h-32"
-          style={{
-            background:
-              "linear-gradient(to bottom, transparent, var(--background))",
-          }}
-        />
-
-        <div className="relative mx-auto max-w-5xl px-6 py-20 lg:py-28 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary mb-8">
-            <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-            Sistema de diseño · v0.1.0
-          </div>
-
-          <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-            Construye más rápido
-            <br />
-            <span
-              style={{
-                background:
-                  "linear-gradient(135deg, oklch(0.550 0.185 284), oklch(0.580 0.170 240))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              con Proteus DS
-            </span>
-          </h1>
-
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            54 componentes, foundations completas y guías de uso para product
-            teams que quieren moverse rápido sin romper la consistencia.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link
-              href="/getting-started"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/80"
-            >
-              Empezar
-              <Icon name="arrow_forward" size={20} />
-            </Link>
-            <Link
-              href="/components/button"
-              className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-            >
-              Ver componentes
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      {/* ── Marquee strip ───────────────────────────────── */}
+      <Marquee />
 
       {/* ── Stats ───────────────────────────────────────── */}
-      <section className="border-b border-border bg-background-secondary">
-        <div className="mx-auto max-w-5xl px-6 py-6">
-          <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {stats.map((s) => (
-              <div key={s.label} className="text-center">
-                <dt className="text-2xl font-bold text-foreground">{s.value}</dt>
-                <dd className="mt-0.5 text-xs text-muted-foreground uppercase tracking-wider">
-                  {s.label}
-                </dd>
-              </div>
-            ))}
-          </dl>
+      <section className="border-b border-border bg-background">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <Reveal>
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-border/30 rounded-2xl overflow-hidden border border-border/30 bg-card/60">
+              {stats.map((s) => (
+                <div key={s.label} className="flex flex-col items-center justify-center px-8 py-8 text-center">
+                  <div className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground font-mono">
+                    {s.value}
+                  </div>
+                  <div className="mt-1.5 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                    {s.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* ── Category grid ───────────────────────────────── */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-16">
-        <div className="mb-10">
-          <h2 className="text-2xl font-bold tracking-tight">Componentes</h2>
-          <p className="mt-1.5 text-sm text-muted-foreground">
-            Organizados por categoría, cada uno con preview y tabla de props.
-          </p>
+      {/* ── Feature pills ───────────────────────────────── */}
+      <section className="border-b border-border/30 bg-background-secondary/40">
+        <div className="mx-auto max-w-6xl px-6 py-5">
+          <Reveal>
+            <div className="flex flex-wrap gap-2">
+              {features.map((f) => (
+                <div
+                  key={f.label}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-card/60 px-3 py-1.5 text-xs text-muted-foreground"
+                >
+                  <Icon name={f.icon} size={14} className="text-muted-foreground/50 shrink-0" />
+                  {f.label}
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
+      </section>
+
+      {/* ── Categories ──────────────────────────────────── */}
+      <section className="mx-auto w-full max-w-6xl px-6 py-16">
+        <Reveal className="mb-10">
+          <h2 className="text-2xl font-bold tracking-tight">Biblioteca de componentes</h2>
+          <p className="mt-1.5 text-sm text-muted-foreground">
+            Cada componente con preview interactivo, tabla de props y guías de accesibilidad.
+          </p>
+        </Reveal>
 
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((cat) => (
-            <Link
-              key={cat.title}
-              href={cat.href}
-              className={`group relative overflow-hidden rounded-xl border border-border bg-card p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${cat.border}`}
-            >
-              <div
-                className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${cat.bg} opacity-0 transition-opacity group-hover:opacity-100`}
-              />
-              <div className="relative">
-                <Icon name={cat.icon} size={20} className={`${cat.accent} mb-3`} />
-                <h3 className="font-semibold text-foreground">{cat.title}</h3>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {cat.description}
-                </p>
-                <span className="mt-3 inline-block text-xs font-mono text-muted-foreground">
+          {categories.map((cat, i) => (
+            <Reveal key={cat.title} delay={i * 45} className="h-full">
+              <Link
+                href={cat.href}
+                className="cat-card group relative overflow-hidden rounded-xl border border-border/40 bg-card/80 p-5 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:bg-card"
+              >
+                {/* corner glow */}
+                <div className="pointer-events-none absolute -top-8 -right-8 size-28 rounded-full bg-primary/6 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="flex items-center justify-between mb-4">
+                  <Icon
+                    name={cat.icon}
+                    size={20}
+                    className={`${cat.accent} transition-transform duration-300 group-hover:-translate-y-0.5`}
+                  />
+                  <Icon
+                    name="arrow_forward"
+                    size={14}
+                    className="text-muted-foreground/30 translate-x-0 opacity-0 group-hover:translate-x-0.5 group-hover:opacity-100 transition-all duration-300"
+                  />
+                </div>
+
+                <h3 className="text-sm font-semibold text-foreground">{cat.title}</h3>
+                <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed">{cat.description}</p>
+                <span className="mt-auto pt-4 text-[11px] font-mono text-muted-foreground/45">
                   {cat.count} componentes
                 </span>
-              </div>
-            </Link>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* ── Foundations preview ─────────────────────────── */}
-      <section className="border-t border-border bg-background-secondary">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold tracking-tight">Foundations</h2>
+      <section className="border-t border-border bg-background-secondary/50">
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <Reveal className="mb-8">
+            <h2 className="text-2xl font-bold tracking-tight">Design tokens</h2>
             <p className="mt-1.5 text-sm text-muted-foreground">
-              Tokens de color, tipografía, espaciado, radius y más.
+              Colors OKLCH, tipografía, espaciado, radius y motion — todo en variables CSS.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid gap-4 md:grid-cols-2">
             {/* Colors */}
-            <Link
-              href="/foundations/colors"
-              className="group rounded-xl border border-border bg-card p-5 transition-colors hover:bg-accent/20"
-            >
-              <p className="mb-3 text-sm font-semibold">Colors</p>
-              <div className="flex gap-2">
-                {colorSwatches.map((s) => (
-                  <div key={s.label} title={s.label} className={`h-8 flex-1 rounded-md ${s.cls}`} />
-                ))}
-              </div>
-              <p className="mt-3 text-xs text-muted-foreground">
-                Sistema OKLCH · dark-first · 6 roles semánticos
-              </p>
-            </Link>
+            <Reveal>
+              <Link
+                href="/foundations/colors"
+                className="group block rounded-xl border border-border/40 bg-card/80 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:shadow-md hover:shadow-black/10"
+              >
+                <p className="mb-3 text-sm font-semibold">Colors</p>
+                <div className="flex gap-2">
+                  {colorSwatches.map((s) => (
+                    <div
+                      key={s.label}
+                      title={s.label}
+                      className={`h-8 flex-1 rounded-lg ${s.cls} transition-transform duration-300 group-hover:scale-y-110`}
+                    />
+                  ))}
+                </div>
+                <p className="mt-3 text-xs text-muted-foreground">Sistema OKLCH · dark-first · 6 roles semánticos</p>
+              </Link>
+            </Reveal>
 
             {/* Typography */}
-            <Link
-              href="/foundations/typography"
-              className="group rounded-xl border border-border bg-card p-5 transition-colors hover:bg-accent/20"
-            >
-              <p className="mb-3 text-sm font-semibold">Typography</p>
-              <div className="space-y-1">
-                <p className="text-2xl font-bold leading-none tracking-tight">Aa</p>
-                <p className="text-sm text-muted-foreground">Inter — Display, Body, Label</p>
-                <p className="font-mono text-xs text-muted-foreground">JetBrains Mono — Code</p>
-              </div>
-            </Link>
+            <Reveal delay={60}>
+              <Link
+                href="/foundations/typography"
+                className="group block rounded-xl border border-border/40 bg-card/80 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:shadow-md hover:shadow-black/10"
+              >
+                <p className="mb-3 text-sm font-semibold">Typography</p>
+                <div className="space-y-1">
+                  <p className="text-2xl font-bold leading-none tracking-tight">Aa</p>
+                  <p className="text-sm text-muted-foreground">Inter — Display, Body, Label</p>
+                  <p className="font-mono text-xs text-muted-foreground">JetBrains Mono — Code</p>
+                </div>
+              </Link>
+            </Reveal>
 
             {/* Radius */}
-            <Link
-              href="/foundations/radius"
-              className="group rounded-xl border border-border bg-card p-5 transition-colors hover:bg-accent/20"
-            >
-              <p className="mb-3 text-sm font-semibold">Radius</p>
-              <div className="flex items-end gap-3">
-                {[
-                  { r: "rounded", label: "10px" },
-                  { r: "rounded-xl", label: "16px" },
-                  { r: "rounded-2xl", label: "20px" },
-                  { r: "rounded-full", label: "∞" },
-                ].map((item) => (
-                  <div key={item.label} className="flex flex-col items-center gap-1.5">
-                    <div className={`size-8 border-2 border-primary/60 bg-primary/10 ${item.r}`} />
-                    <span className="text-[10px] text-muted-foreground font-mono">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </Link>
+            <Reveal delay={30}>
+              <Link
+                href="/foundations/radius"
+                className="group block rounded-xl border border-border/40 bg-card/80 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:shadow-md hover:shadow-black/10"
+              >
+                <p className="mb-3 text-sm font-semibold">Radius</p>
+                <div className="flex items-end gap-3">
+                  {[
+                    { r: "rounded-md",  label: "8px" },
+                    { r: "rounded-xl",  label: "16px" },
+                    { r: "rounded-2xl", label: "20px" },
+                    { r: "rounded-full", label: "∞" },
+                  ].map((item) => (
+                    <div key={item.label} className="flex flex-col items-center gap-1.5">
+                      <div className={`size-8 border-2 border-primary/50 bg-primary/10 ${item.r} transition-transform duration-300 group-hover:scale-105`} />
+                      <span className="text-[10px] text-muted-foreground font-mono">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </Link>
+            </Reveal>
 
             {/* Spacing */}
-            <Link
-              href="/foundations/spacing"
-              className="group rounded-xl border border-border bg-card p-5 transition-colors hover:bg-accent/20"
-            >
-              <p className="mb-3 text-sm font-semibold">Spacing</p>
-              <div className="flex items-end gap-1.5">
-                {[1, 2, 3, 4, 6, 8, 12].map((n) => (
-                  <div key={n} className="flex flex-col items-center gap-1">
-                    <div className="w-3 bg-primary/60 rounded-sm" style={{ height: `${n * 4}px` }} />
-                    <span className="text-[9px] text-muted-foreground font-mono">{n}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-2 text-xs text-muted-foreground">Escala 4px · tokens semánticos</p>
-            </Link>
+            <Reveal delay={90}>
+              <Link
+                href="/foundations/spacing"
+                className="group block rounded-xl border border-border/40 bg-card/80 p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-border hover:shadow-md hover:shadow-black/10"
+              >
+                <p className="mb-3 text-sm font-semibold">Spacing</p>
+                <div className="flex items-end gap-1.5">
+                  {[1, 2, 3, 4, 6, 8, 12].map((n) => (
+                    <div key={n} className="flex flex-col items-center gap-1">
+                      <div
+                        className="w-3 bg-primary/50 rounded-sm transition-colors duration-300 group-hover:bg-primary/70"
+                        style={{ height: `${n * 4}px` }}
+                      />
+                      <span className="text-[9px] text-muted-foreground font-mono">{n}</span>
+                    </div>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">Escala 4px · tokens semánticos</p>
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* ── Getting started ─────────────────────────────── */}
       <section className="border-t border-border">
-        <div className="mx-auto max-w-5xl px-6 py-16">
-          <div className="grid gap-10 md:grid-cols-2 items-center">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight">Empieza en minutos</h2>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                Proteus DS está construido sobre shadcn/ui y Tailwind v4.
-                Instala, importa y usa cualquier componente en tu proyecto Next.js.
-              </p>
-              <Link
-                href="/getting-started/installation"
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4"
-              >
-                Ver guía de instalación
-                <Icon name="arrow_forward" size={20} />
-              </Link>
-            </div>
-
-            <div className="rounded-xl border border-border bg-card overflow-hidden">
-              <div className="flex items-center gap-1.5 border-b border-border px-4 py-2.5 bg-background-secondary">
-                <span className="size-2.5 rounded-full bg-destructive/60" />
-                <span className="size-2.5 rounded-full bg-warning/60" />
-                <span className="size-2.5 rounded-full bg-success/60" />
-                <span className="ml-2 text-xs text-muted-foreground font-mono">terminal</span>
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <Reveal>
+            <div className="grid gap-10 md:grid-cols-2 items-center">
+              <div>
+                <h2 className="text-2xl font-bold tracking-tight">Empieza en minutos</h2>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  Construido sobre shadcn/ui y Tailwind v4.
+                  Instala, importa y usa cualquier componente en tu proyecto Next.js.
+                </p>
+                <Link
+                  href="/getting-started/installation"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4"
+                >
+                  Ver guía de instalación
+                  <Icon name="arrow_forward" size={20} />
+                </Link>
               </div>
-              <pre className="p-4 text-xs font-mono leading-relaxed text-foreground overflow-x-auto">
-                <code>{`\
-`}<span className="text-muted-foreground">{`# instalar dependencias`}</span>{`
-`}<span className="text-success">{`npm`}</span>{` install @proteus-ds/ui
 
-`}<span className="text-muted-foreground">{`# usar en tu proyecto`}</span>{`
-`}<span className="text-info">{`import`}</span>{` { Button } `}<span className="text-info">{`from`}</span>{` "@/components/ui/button"
-
-`}<span className="text-primary">{`<Button`}</span><span className="text-warning">{` variant`}</span>{`=`}<span className="text-success">{`"default"`}</span><span className="text-primary">{`>`}</span>{`
-  Hola Proteus
-`}<span className="text-primary">{`</Button>`}</span></code>
-              </pre>
+              <div className="rounded-xl border border-border/60 bg-card overflow-hidden">
+                <div className="flex items-center gap-1.5 border-b border-border/60 px-4 py-2.5 bg-background-secondary/80">
+                  <span className="size-2.5 rounded-full bg-destructive/50" />
+                  <span className="size-2.5 rounded-full bg-warning/50" />
+                  <span className="size-2.5 rounded-full bg-success/50" />
+                  <span className="ml-3 text-xs text-muted-foreground font-mono">terminal</span>
+                </div>
+                <pre className="p-5 text-xs font-mono leading-relaxed text-foreground overflow-x-auto">
+                  <code>
+                    <span className="text-muted-foreground">{"# instalar dependencias\n"}</span>
+                    <span className="text-success">npm</span>{" install @proteus-ds/ui\n\n"}
+                    <span className="text-muted-foreground">{"# usar en tu proyecto\n"}</span>
+                    <span className="text-info">import</span>
+                    {" { Button } "}
+                    <span className="text-info">from</span>
+                    {" \"@/components/ui/button\"\n\n"}
+                    <span className="text-primary">{"<Button"}</span>
+                    <span className="text-warning">{" variant"}</span>
+                    {"="}
+                    <span className="text-success">{"\"default\""}</span>
+                    <span className="text-primary">{">"}</span>
+                    {"\n  Hola Proteus\n"}
+                    <span className="text-primary">{"</Button>"}</span>
+                  </code>
+                </pre>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── Footer ──────────────────────────────────────── */}
       <footer className="mt-auto border-t border-border">
-        <div className="mx-auto max-w-5xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
+        <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
           <span>Proteus DS · v0.1.0</span>
           <div className="flex items-center gap-4">
             <Link href="/getting-started" className="hover:text-foreground transition-colors">Docs</Link>
