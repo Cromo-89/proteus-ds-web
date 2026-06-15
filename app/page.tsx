@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Topbar } from "@/components/docs/topbar"
 import { Icon } from "@/components/ui/icon"
-import { HeroScroll } from "@/components/home/hero-scroll"
+import { HeroParticles } from "@/components/home/hero-particles"
 import { Marquee } from "@/components/home/marquee"
 import { Reveal } from "@/components/home/reveal"
 
@@ -102,8 +102,8 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col">
       <Topbar />
 
-      {/* ── Hero scroll-driven ───────────────────────────── */}
-      <HeroScroll />
+      {/* ── Hero ────────────────────────────────────────── */}
+      <HeroParticles />
 
       {/* ── Marquee strip ───────────────────────────────── */}
       <Marquee />
