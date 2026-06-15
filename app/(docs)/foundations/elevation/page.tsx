@@ -86,11 +86,14 @@ export default function ElevationPage() {
           {shadows.map(({ name, value, uso, ejemplos }) => (
             <div key={name} className="overflow-hidden rounded-xl border border-border">
               <div className="grid sm:grid-cols-[auto_1fr] divide-y sm:divide-y-0 sm:divide-x divide-border">
-                {/* Preview */}
-                <div className="flex items-center justify-center bg-background p-8 sm:w-48">
+                {/* Preview — fondo claro fijo para que las sombras sean visibles */}
+                <div
+                  className="flex items-center justify-center p-8 sm:w-48"
+                  style={{ background: "oklch(0.87 0.006 284)" }}
+                >
                   <div
-                    className="size-16 rounded-xl bg-secondary"
-                    style={{ boxShadow: value }}
+                    className="size-16 rounded-xl"
+                    style={{ background: "oklch(0.97 0.002 284)", boxShadow: value }}
                   />
                 </div>
                 {/* Info */}
