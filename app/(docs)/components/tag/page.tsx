@@ -4,7 +4,7 @@ import { Icon } from "@/components/ui/icon"
 import { Badge } from "@/components/ui/badge"
 import { ComponentPreview } from "@/components/docs/component-preview"
 import { PropsTable } from "@/components/docs/props-table"
-import { TagDismissibleDemo } from "@/components/docs/tag-demos"
+import { TagDismissibleDemo, TagFilterDemo } from "@/components/docs/tag-demos"
 import { highlight } from "@/lib/highlight"
 
 export const metadata: Metadata = { title: "Tag" }
@@ -187,14 +187,7 @@ export default async function TagPage() {
           y permite quitarlo individualmente.
         </p>
         <ComponentPreview
-          preview={
-            <div className="flex flex-wrap gap-2">
-              <span className="text-xs text-muted-foreground self-center">Filtros activos:</span>
-              <Tag variant="secondary" onDismiss={() => {}}>Categoría: UI</Tag>
-              <Tag variant="secondary" onDismiss={() => {}}>Estado: Activo</Tag>
-              <Tag variant="secondary" onDismiss={() => {}}>Autor: Ana García</Tag>
-            </div>
-          }
+          preview={<TagFilterDemo />}
           codeHtml={filterHtml}
           code={filterCode}
         />

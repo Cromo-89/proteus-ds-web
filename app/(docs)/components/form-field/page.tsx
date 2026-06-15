@@ -202,7 +202,7 @@ export default async function FormFieldPage() {
         </p>
         <ComponentPreview
           preview={
-            <form className="flex flex-col gap-5 w-72" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-5 w-72">
               <FormField label="Nombre completo" htmlFor="fc-name" required>
                 <Input id="fc-name" placeholder="Ana García" />
               </FormField>

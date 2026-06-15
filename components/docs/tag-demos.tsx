@@ -3,6 +3,17 @@
 import { useState } from "react"
 import { Tag } from "@/components/ui/tag"
 
+export function TagFilterDemo() {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <span className="text-xs text-muted-foreground self-center">Filtros activos:</span>
+      <Tag variant="secondary" onDismiss={() => {}}>Categoría: UI</Tag>
+      <Tag variant="secondary" onDismiss={() => {}}>Estado: Activo</Tag>
+      <Tag variant="secondary" onDismiss={() => {}}>Autor: Ana García</Tag>
+    </div>
+  )
+}
+
 const INITIAL = ["React", "TypeScript", "Tailwind CSS", "Next.js"]
 
 export function TagDismissibleDemo() {
