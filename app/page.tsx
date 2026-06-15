@@ -21,6 +21,14 @@ const features = [
   { icon: "accessibility",  label: "Accesible por defecto" },
 ]
 
+const accentVars: Record<string, string> = {
+  "text-primary":     "var(--primary)",
+  "text-info":        "var(--info)",
+  "text-success":     "var(--success)",
+  "text-warning":     "var(--warning)",
+  "text-destructive": "var(--destructive)",
+}
+
 const categories = [
   {
     title: "Atoms",
@@ -161,6 +169,7 @@ export default function HomePage() {
             <Reveal key={cat.title} delay={i * 45} className="h-full">
               <Link
                 href={cat.href}
+                style={{ "--cat-accent": accentVars[cat.accent] } as React.CSSProperties}
                 className="cat-card group relative overflow-hidden rounded-xl border border-border/40 bg-card/80 p-5 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:bg-card"
               >
                 {/* corner glow */}

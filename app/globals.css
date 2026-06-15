@@ -229,15 +229,22 @@
   transform: translateY(0);
 }
 
-/* ── Category card glow ───────────────────────────────────── */
+/* ── Category card glow — border + glow adaptan al color del ícono ─── */
+.cat-card {
+  --cat-accent: var(--primary);
+}
+.cat-card:hover {
+  border-color: oklch(from var(--cat-accent) l c h / 0.50);
+}
 .cat-card::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  pointer-events: none;
   opacity: 0;
   transition: opacity 0.35s ease;
-  box-shadow: 0 0 0 1px oklch(0.45 0.18 284 / 0.28), 0 0 40px oklch(0.45 0.18 284 / 0.10);
+  box-shadow: 0 0 32px oklch(from var(--cat-accent) l c h / 0.12);
 }
 .cat-card:hover::before {
   opacity: 1;
