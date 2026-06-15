@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Topbar } from "@/components/docs/topbar"
 import { Icon } from "@/components/ui/icon"
-import { HeroParticles } from "@/components/home/hero-particles"
+import { HeroWebGL } from "@/components/home/hero-webgl"
 import { Marquee } from "@/components/home/marquee"
 import { Reveal } from "@/components/home/reveal"
 
@@ -103,7 +103,7 @@ export default function HomePage() {
       <Topbar />
 
       {/* ── Hero ────────────────────────────────────────── */}
-      <HeroParticles />
+      <HeroWebGL />
 
       {/* ── Marquee strip ───────────────────────────────── */}
       <Marquee />
