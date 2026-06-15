@@ -74,29 +74,41 @@ export function DurationDemo() {
 
 export function EasingDemo() {
   return (
-    <div className="space-y-3">
-      {easings.map(({ name, css, uso, contexto }) => (
-        <div key={name} className="overflow-hidden rounded-xl border border-border">
-          <div className="grid sm:grid-cols-[auto_1fr] divide-y sm:divide-y-0 sm:divide-x divide-border">
-            <div className="flex items-center justify-center bg-background-secondary p-6 sm:w-40 group">
-              <div
-                className="size-8 rounded-lg bg-primary group-hover:translate-x-8"
-                style={{ transition: `transform 600ms ${css}` }}
-              />
-            </div>
-            <div className="p-4 space-y-1.5">
-              <div className="flex items-center gap-3 flex-wrap">
-                <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-foreground">
-                  {name}
-                </code>
-                <code className="font-mono text-[10px] text-muted-foreground">{css}</code>
+    <>
+      <style>{`
+        @keyframes easing-demo {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(72px); }
+        }
+      `}</style>
+      <div className="space-y-3">
+        {easings.map(({ name, css, uso, contexto }, i) => (
+          <div key={name} className="overflow-hidden rounded-xl border border-border">
+            <div className="grid sm:grid-cols-[auto_1fr] divide-y sm:divide-y-0 sm:divide-x divide-border">
+              {/* Demo con animación continua — cada card usa su propia curva */}
+              <div className="flex items-center bg-background-secondary px-6 sm:w-48 h-20">
+                <div
+                  className="size-5 rounded-md bg-primary"
+                  style={{
+                    animation: `easing-demo 1.6s ${css} infinite`,
+                    animationDelay: `${i * -0.4}s`,
+                  }}
+                />
               </div>
-              <p className="text-xs text-foreground">{uso}</p>
-              <p className="text-[11px] text-muted-foreground">{contexto}</p>
+              <div className="p-4 space-y-1.5">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-foreground">
+                    {name}
+                  </code>
+                  <code className="font-mono text-[10px] text-muted-foreground">{css}</code>
+                </div>
+                <p className="text-xs text-foreground">{uso}</p>
+                <p className="text-[11px] text-muted-foreground">{contexto}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   )
 }
