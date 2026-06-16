@@ -6,7 +6,7 @@ import { Marquee } from "@/components/home/marquee"
 import { Reveal } from "@/components/home/reveal"
 
 const stats = [
-  { value: "54",    label: "Componentes" },
+  { value: "68",    label: "Componentes" },
   { value: "7",     label: "Foundations" },
   { value: "OKLCH", label: "Color system" },
   { value: "100%",  label: "TypeScript" },
@@ -33,7 +33,7 @@ const categories = [
   {
     title: "Atoms",
     description: "Bloques base del sistema",
-    count: 11,
+    count: 14,
     href: "/components/button",
     icon: "widgets",
     accent: "text-primary",
@@ -41,7 +41,7 @@ const categories = [
   {
     title: "Forms",
     description: "Inputs y controles",
-    count: 8,
+    count: 16,
     href: "/components/input",
     icon: "layers",
     accent: "text-info",
@@ -49,7 +49,7 @@ const categories = [
   {
     title: "Navigation",
     description: "Patrones de navegación",
-    count: 6,
+    count: 7,
     href: "/components/tabs",
     icon: "near_me",
     accent: "text-success",
@@ -57,7 +57,7 @@ const categories = [
   {
     title: "Overlays",
     description: "Modales y popovers",
-    count: 8,
+    count: 9,
     href: "/components/dialog",
     icon: "open_in_full",
     accent: "text-warning",
@@ -65,7 +65,7 @@ const categories = [
   {
     title: "Feedback",
     description: "Alertas y estados",
-    count: 4,
+    count: 6,
     href: "/components/alert",
     icon: "notifications",
     accent: "text-destructive",
@@ -73,7 +73,7 @@ const categories = [
   {
     title: "Display",
     description: "Componentes de contenido",
-    count: 12,
+    count: 16,
     href: "/components/card",
     icon: "grid_view",
     accent: "text-primary",
@@ -347,7 +347,7 @@ export default function HomePage() {
       {/* ── Footer ──────────────────────────────────────── */}
       <footer className="mt-auto border-t border-border">
         <div className="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted-foreground">
-          <span>Proteus DS · v0.1.0</span>
+          <span>Proteus DS by Cromo · v0.1.0</span>
           <div className="flex items-center gap-4">
             <Link href="/getting-started" className="hover:text-foreground transition-colors">Docs</Link>
             <Link href="/components/button" className="hover:text-foreground transition-colors">Componentes</Link>

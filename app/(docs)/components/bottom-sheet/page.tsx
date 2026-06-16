@@ -63,10 +63,10 @@ const confirmCode = `<Sheet>
       </SheetDescription>
     </SheetHeader>
     <SheetFooter>
-      <SheetClose render={<Button variant="outline" className="flex-1" />}>
+      <SheetClose render={<Button variant="outline" className="flex-1 h-11" />}>
         Mantener suscripción
       </SheetClose>
-      <Button variant="destructive" className="flex-1">
+      <Button variant="destructive" className="flex-1 h-11">
         Cancelar de todas formas
       </Button>
     </SheetFooter>
@@ -175,10 +175,10 @@ export default async function BottomSheetPage() {
                   </SheetDescription>
                 </SheetHeader>
                 <SheetFooter>
-                  <SheetClose render={<Button variant="outline" className="flex-1" />}>
+                  <SheetClose render={<Button variant="outline" className="flex-1 h-11" />}>
                     Mantener suscripción
                   </SheetClose>
-                  <Button variant="destructive" className="flex-1">
+                  <Button variant="destructive" className="flex-1 h-11">
                     Cancelar de todas formas
                   </Button>
                 </SheetFooter>

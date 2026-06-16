@@ -120,7 +120,8 @@ export default function TypographyPage() {
           </p>
         </div>
         <div className="overflow-hidden rounded-xl border border-border">
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-max text-sm">
             <thead>
               <tr className="border-b border-border bg-background-secondary">
                 <th className="px-4 py-2.5 text-left font-medium text-muted-foreground w-28">Clase</th>
@@ -144,6 +145,7 @@ export default function TypographyPage() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </section>
 

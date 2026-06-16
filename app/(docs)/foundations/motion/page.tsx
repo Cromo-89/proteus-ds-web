@@ -158,7 +158,8 @@ export default function MotionPage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold tracking-tight">Cheatsheet</h2>
         <div className="overflow-hidden rounded-xl border border-border">
-          <table className="w-full text-xs">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-max text-xs">
             <thead>
               <tr className="border-b border-border bg-background-secondary">
                 <th className="px-4 py-2.5 text-left font-medium text-muted-foreground">Contexto</th>
@@ -187,6 +188,7 @@ export default function MotionPage() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </section>
     </article>

@@ -132,7 +132,8 @@ export default function ElevationPage() {
           </p>
         </div>
         <div className="overflow-hidden rounded-xl border border-border">
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-max text-sm">
             <thead>
               <tr className="border-b border-border bg-background-secondary">
                 <th className="px-4 py-2.5 text-left font-medium text-muted-foreground">Clase</th>
@@ -154,6 +155,7 @@ export default function ElevationPage() {
               ))}
             </tbody>
           </table>
+          </div>
         </div>
       </section>
 

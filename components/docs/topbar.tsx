@@ -1,9 +1,9 @@
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-import { Icon } from "@/components/ui/icon"
 import { ThemeToggle } from "@/components/docs/theme-toggle"
 import { MobileSidebar } from "@/components/docs/mobile-sidebar"
 import { ProteusLogo } from "@/components/docs/proteus-logo"
+import { SearchCommand } from "@/components/docs/search-command"
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -26,17 +26,7 @@ export function Topbar() {
           <ProteusLogo />
         </div>
 
-        {/* Search placeholder */}
-        <button
-          className="flex flex-1 max-w-sm items-center gap-2 rounded-md border border-border bg-muted/50 px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted mx-auto md:mx-0 md:ml-6"
-          aria-label="Buscar en la documentación"
-        >
-          <Icon name="search" size={20} className="text-muted-foreground shrink-0" />
-          <span className="hidden sm:inline">Buscar componentes...</span>
-          <kbd className="ml-auto hidden sm:flex items-center gap-0.5 rounded border border-border bg-background px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground">
-            <span>⌘</span>K
-          </kbd>
-        </button>
+        <SearchCommand />
 
         <div className="flex items-center gap-1 ml-auto">
           <Badge variant="outline" className="hidden sm:flex text-xs font-mono">

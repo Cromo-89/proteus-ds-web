@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Progress, ProgressLabel, ProgressValue } from "@/components/ui/progress"
+import { Banner, BannerContent, BannerActions } from "@/components/ui/banner"
 import { Icon } from "@/components/ui/icon"
 
 /* ── Toast demos ─────────────────────────────────────────── */
@@ -86,6 +87,43 @@ export function ToastAllDemo() {
       <ToastWarningDemo />
       <ToastActionDemo />
       <ToastPromiseDemo />
+    </div>
+  )
+}
+
+/* ── Banner demos ────────────────────────────────────────── */
+
+export function BannerDismissDemo() {
+  const [visible, setVisible] = useState(true)
+  return (
+    <div className="w-full">
+      {visible ? (
+        <Banner variant="info">
+          <BannerContent>
+            <Icon name="info" size={16} />
+            <span>Nueva versión disponible. Actualiza para ver los últimos cambios.</span>
+          </BannerContent>
+          <BannerActions>
+            <button
+              aria-label="Cerrar banner"
+              onClick={() => setVisible(false)}
+              className="rounded p-1 opacity-60 transition-opacity hover:opacity-100"
+            >
+              <Icon name="close" size={16} />
+            </button>
+          </BannerActions>
+        </Banner>
+      ) : (
+        <p className="py-2 text-center text-sm text-muted-foreground">
+          Banner descartado.{" "}
+          <button
+            onClick={() => setVisible(true)}
+            className="text-primary underline underline-offset-4"
+          >
+            Mostrar de nuevo
+          </button>
+        </p>
+      )}
     </div>
   )
 }

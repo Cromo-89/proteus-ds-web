@@ -39,7 +39,7 @@ export function ComponentPreview({ preview, codeHtml, code }: ComponentPreviewPr
 
       {/* Content */}
       {tab === "preview" ? (
-        <div className="flex min-h-48 items-center justify-center bg-card p-8">
+        <div className="flex min-h-48 items-center justify-center bg-card p-4 sm:p-8">
           {preview}
         </div>
       ) : (

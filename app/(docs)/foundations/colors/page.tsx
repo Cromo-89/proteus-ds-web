@@ -168,24 +168,23 @@ export default function ColorsPage() {
               {group.tokens.map((token, i) => (
                 <div
                   key={token.name}
-                  className={`flex items-center gap-4 px-4 py-3 ${i < group.tokens.length - 1 ? "border-b border-border" : ""}`}
+                  className={`flex items-center gap-3 px-4 py-3 ${i < group.tokens.length - 1 ? "border-b border-border" : ""}`}
                 >
                   {/* Swatch */}
-                  <div className="flex shrink-0 gap-1.5">
-                    <div
-                      className="size-8 rounded-md border border-border/50 shadow-sm"
-                      style={{ background: `var(${token.name})` }}
-                      title={`Dark: ${token.dark}`}
-                    />
+                  <div
+                    className="size-8 rounded-md border border-border/50 shadow-sm shrink-0"
+                    style={{ background: `var(${token.name})` }}
+                    title={`Dark: ${token.dark}`}
+                  />
+                  {/* Token name + label */}
+                  <div className="min-w-0 flex-1">
+                    <code className="font-mono text-xs text-muted-foreground block truncate">
+                      {token.name}
+                    </code>
+                    <span className="text-xs text-muted-foreground">{token.label}</span>
                   </div>
-                  {/* Token name */}
-                  <code className="font-mono text-xs text-muted-foreground w-52 shrink-0">
-                    {token.name}
-                  </code>
-                  {/* Label */}
-                  <span className="text-sm text-muted-foreground w-24 shrink-0">{token.label}</span>
-                  {/* Values */}
-                  <div className="hidden sm:flex flex-col gap-0.5 ml-auto text-right">
+                  {/* Values — desktop only */}
+                  <div className="hidden sm:flex flex-col gap-0.5 text-right shrink-0">
                     <span className="text-[10px] text-muted-foreground font-mono">dark {token.dark}</span>
                     <span className="text-[10px] text-muted-foreground font-mono">light {token.light}</span>
                   </div>
@@ -242,8 +241,8 @@ export default function ColorsPage() {
       {/* Cheatsheet */}
       <section className="space-y-3">
         <h2 className="text-xl font-semibold tracking-tight">Cheatsheet</h2>
-        <div className="overflow-hidden rounded-xl border border-border">
-          <table className="w-full text-xs">
+        <div className="overflow-x-auto overflow-hidden rounded-xl border border-border">
+          <table className="w-full text-xs min-w-[520px]">
             <thead>
               <tr className="border-b border-border bg-background-secondary">
                 <th className="px-4 py-2.5 text-left font-medium text-muted-foreground">Token</th>

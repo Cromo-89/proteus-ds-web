@@ -9,10 +9,10 @@ export default function DocsLayout({
   return (
     <div className="min-h-screen">
       <Topbar />
-      <div className="flex">
+      <div className="flex min-w-0">
         <Sidebar />
-        <main className="flex-1 md:pl-60">
-          <div className="mx-auto max-w-3xl px-6 py-10 lg:px-8">
+        <main className="flex-1 min-w-0 overflow-x-clip md:pl-60">
+          <div className="mx-auto max-w-3xl px-4 py-6 sm:px-6 md:py-10 lg:px-8">
             {children}
           </div>
         </main>
